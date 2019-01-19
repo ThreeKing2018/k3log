@@ -102,4 +102,11 @@ Info("info-100", 300) //这个无法输出,因为上面设置日志级别为:err
 Error("err", 400)
 ```
 
+#### 效率
+```json
+runtime.GOMAXPROCS(runtime.NumCPU())
+BenchmarkInfo-4   	  100000	     10776 ns/op
+BenchmarkInfo-4   	  200000	     12442 ns/op
+```
+
 [TOP](#k3log)

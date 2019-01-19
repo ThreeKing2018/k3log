@@ -70,6 +70,7 @@ func New(opts ...conf.Option) *Log {
 		MaxBackups: 3,
 		MaxAge:     o.MaxAge, // days
 		LocalTime:  true,
+		Compress:false,
 	})
 	if o.IsStdOut {
 		writers = append(writers, os.Stdout)

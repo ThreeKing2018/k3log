@@ -1,4 +1,4 @@
-package golog
+package k3log
 
 import (
 	"github.com/ThreeKing2018/k3log/conf"
@@ -11,6 +11,21 @@ var l Loger = zaplog.New()
 //设置
 func SetLogger(opts ...conf.Option) {
 	l = zaplog.New(opts...)
+}
+//快捷使用,开发使用
+func NewDevelopment(projectName, filePath string) {
+	SetLogger(conf.WithProjectName(projectName),
+		conf.WithFilename(filePath),
+		conf.WithLogType(conf.LogJsontype),
+		conf.WithIsStdOut(true))
+}
+//快捷使用,生产使用
+func NewProducttion(projectName, filePath string) {
+	SetLogger(conf.WithProjectName(projectName),
+		conf.WithLogType(conf.LogJsontype),
+		conf.WithFilename(filePath),
+		conf.WithLogLevel(conf.ErrorLevel),
+		conf.WithIsStdOut(false))
 }
 
 //目前只有zap生效

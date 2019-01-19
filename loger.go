@@ -1,4 +1,4 @@
-package golog
+package k3log
 
 import (
 	"github.com/ThreeKing2018/k3log/conf"

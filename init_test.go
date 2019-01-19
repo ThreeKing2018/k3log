@@ -1,18 +1,19 @@
-package golog
+package k3log
 
 import (
 	"testing"
 	"github.com/ThreeKing2018/k3log/conf"
 	"fmt"
 	"log"
+	"runtime"
 )
 
 func Test_logge(t *testing.T) {
 	defer Sync()
 	SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
-		conf.WithProjectName("Zelog日志"),          //设置项目名称
+		conf.WithProjectName("k3日志"),          //设置项目名称
 		conf.WithFilename("log.txt"),             //设置输出文件名,或输出的路径
-		conf.WithLogLevel(conf.ErrorLevel),        //设置日志级别,默认debug
+		conf.WithLogLevel(conf.ErrorLevel),       //设置日志级别,默认debug
 		conf.WithMaxAge(30),                      //日志保存天数,默认30天
 		conf.WithMaxSize(512),                    //多少M进行分隔日志,默认100M
 		//conf.WithStacktrace(conf.PanicLevel),                   //设置堆栈级别
@@ -26,14 +27,16 @@ func Test_logge(t *testing.T) {
 }
 
 func BenchmarkInfo(t *testing.B) {
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
-		conf.WithProjectName("Zelog日志"),          //设置项目名称
+		conf.WithProjectName("k3日志"),          //设置项目名称
 		conf.WithFilename("log.txt"),             //设置输出文件名,或输出的路径
 		conf.WithLogLevel(conf.InfoLevel),        //设置日志级别,默认debug
 		conf.WithMaxAge(30),                      //日志保存天数,默认30天
-		conf.WithMaxSize(512),                    //多少M进行分隔日志,默认100M
+		conf.WithMaxSize(10),                    //多少M进行分隔日志,默认100M
 		conf.WithStacktrace(2),                   //设置堆栈级别
-		conf.WithIsStdOut(true)) //是否同时输出控制台
+		conf.WithIsStdOut(false)) //是否同时输出控制台
+	defer Sync()
 	for i := 0; i < t.N; i++ {
 		Info("测试日志", "打印结果", 100)
 	}
