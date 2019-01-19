@@ -20,6 +20,8 @@
 - Panic 恐慌的,退出函数,不会退出应用唾弃,会执行defer
 - Fatal 致命的,退出应用程序,不会执行defer,因为底层多一个os.Exit
 
+[TOP](#k3log)
+
 #### 设置参数
 - WithFilename    string //日志保存路径
 - WithLogLevel    Level  //日志记录级别
@@ -29,6 +31,8 @@
 - WithIsStdOut    bool   //是否标准输出console输出
 - WithProjectName string //项目名称
 - WithLogType     string //日志类型,普通 或 json
+
+[TOP](#k3log)
 
 #### 使用方法
 
@@ -42,6 +46,8 @@ Error("error日志", 4)
 Panic("panic", 5)
 Fatal("fatal", 6)
 ```
+
+[TOP](#k3log)
 
 - 自测使用
 ```golang
@@ -63,6 +69,8 @@ Panic("panic", 5)
 Fatal("fatal", 6)
 ```
 
+[TOP](#k3log)
+
 - 生产使用
 
 ```golang
@@ -81,6 +89,7 @@ SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
 	Panic("panic", 5)
 	Fatal("fatal", 6)
 ```
+[TOP](#k3log)
 
 #### 动态改变日志的打印级别
 ```golang
@@ -92,3 +101,5 @@ SetLogLevel(conf.ErrorLevel)
 Info("info-100", 300) //这个无法输出,因为上面设置日志级别为:error
 Error("err", 400)
 ```
+
+[TOP](#k3log)
