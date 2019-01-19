@@ -11,26 +11,27 @@
 - [设置参数](#设置参数)
 - [使用方法](#使用方法)
 - [动态改变日志的打印级别](#动态改变日志的打印级别)
+- [效率](#效率)
 
 #### 日志级别
-- Debug 调度使用, 程序继续运行
-- Info 提示使用, 程序继续运行
-- Warn 警告使用, 程序继续运行
-- Error 错误使用, 程序继续运行
-- Panic 恐慌的,退出函数,不会退出应用唾弃,会执行defer
-- Fatal 致命的,退出应用程序,不会执行defer,因为底层多一个os.Exit
+- `Debug` 调度使用, 程序继续运行
+- `Info` 提示使用, 程序继续运行
+- `Warn` 警告使用, 程序继续运行
+- `Error` 错误使用, 程序继续运行
+- `Panic` 恐慌的,退出函数,不会退出应用唾弃,会执行defer
+- `Fatal` 致命的,退出应用程序,不会执行defer,因为底层多一个os.Exit
 
 [TOP](#k3log)
 
 #### 设置参数
-- WithFilename    string //日志保存路径
-- WithLogLevel    Level  //日志记录级别
-- WithMaxSize     int    //日志分割的尺寸 MB
-- WithMaxAge      int    //分割日志保存的时间 day
-- WithStacktrace  Level  //记录堆栈的级别
-- WithIsStdOut    bool   //是否标准输出console输出
-- WithProjectName string //项目名称
-- WithLogType     string //日志类型,普通 或 json
+- `WithFilename`    日志保存路径
+- `WithLogLevel`    日志记录级别
+- `WithMaxSize`     日志分割的尺寸 MB
+- `WithMaxAge`      分割日志保存的时间 day
+- `WithStacktrace`  记录堆栈的级别
+- `WithIsStdOut`    是否标准输出console输出
+- `WithProjectName` 项目名称
+- `WithLogType`     日志类型,普通 或 json
 
 [TOP](#k3log)
 
