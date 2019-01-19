@@ -44,7 +44,6 @@ var encoderConfig = zapcore.EncoderConfig{
 	EncodeLevel:    zapcore.CapitalLevelEncoder,
 	EncodeTime:     zapcore.ISO8601TimeEncoder,
 	EncodeDuration: zapcore.SecondsDurationEncoder,
-
 	EncodeCaller: zapcore.ShortCallerEncoder,
 }
 

@@ -1,7 +1,7 @@
-# zelog
+# k3log
 
 #### 介绍
-> 取名zap + extend + log
+> 取名Three King Log
 - 由uber zap 日志扩展而来
 - 实现分隔,异步,动态级别打印,json/txt
 - 以key-value形式打印日志,适合项目里使用
