@@ -49,14 +49,24 @@ Fatal("fatal", 6)
 
 [TOP](#k3log)
 
-- 自测使用
+- 开发使用
+
+```
+NewDevelopment("dev", "log.txt")
+defer Sync()
+Info("Info", "dev")
+```
+
+- 开发使用2
+
 ```golang
 SetLogger(conf.WithIsStdOut(true),
 		conf.WithLogType(conf.LogJsontype))
 	Debug("self test", 100)
 ```
 
-- 线上测试使用
+- 开发使用3
+
 ```golang
 SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
     conf.WithProjectName("Zelog日志"),          //设置项目名称
@@ -72,6 +82,14 @@ Fatal("fatal", 6)
 [TOP](#k3log)
 
 - 生产使用
+```golang
+NewProducttion("pro", "log.txt")
+defer Sync()
+Error("pro", "ok")
+
+```
+
+- 生产使用2
 
 ```golang
 SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
@@ -81,13 +99,13 @@ SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
 		conf.WithMaxAge(30),                      //日志保存天数,默认30天
 		conf.WithMaxSize(512),                    //多少M进行分隔日志,默认100M
 		conf.WithIsStdOut(false)) //是否同时输出控制台
-	defer Sync()
-	Debug("debug日志", 1)
-	Info("info日志", 2)
-	Warn("warn日志", 3)
-	Error("error日志", 4)
-	Panic("panic", 5)
-	Fatal("fatal", 6)
+defer Sync()
+Debug("debug日志", 1)
+Info("info日志", 2)
+Warn("warn日志", 3)
+Error("error日志", 4)
+Panic("panic", 5)
+Fatal("fatal", 6)
 ```
 [TOP](#k3log)
 
