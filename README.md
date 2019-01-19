@@ -28,7 +28,7 @@
 
 - 简单使用
 
-```
+```golang
 Debug("debug日志", 1)
 Info("info日志", 2)
 Warn("warn日志", 3)
@@ -38,14 +38,14 @@ Fatal("fatal", 6)
 ```
 
 - 自测使用
-```
+```golang
 SetLogger(conf.WithIsStdOut(true),
 		conf.WithLogType(conf.LogJsontype))
 	Debug("self test", 100)
 ```
 
 - 线上测试使用
-```
+```golang
 SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
     conf.WithProjectName("Zelog日志"),          //设置项目名称
     conf.WithFilename("log.txt"),             //设置输出文件名,或输出的路径
@@ -77,7 +77,7 @@ SetLogger(conf.WithLogType(conf.LogJsontype), //打印json格式
 ```
 
 #### 动态改变日志的打印级别
-```
+```golang
 Info("aa", 11)
 SetLogLevel(conf.InfoLevel)
 Info("info", 100)
