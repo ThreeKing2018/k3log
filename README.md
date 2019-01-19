@@ -9,7 +9,7 @@
 1. [动态改变日志的打印级别](#动态改变日志的打印级别)
 1. [效率](#效率)
 
-#### 介绍
+### 介绍
 
 取名Three King Log
 
@@ -18,7 +18,7 @@
 - 以key-value形式打印日志,适合项目里使用
 
 
-#### 日志级别
+### 日志级别
 - `Debug` 调度使用, 程序继续运行
 - `Info` 提示使用, 程序继续运行
 - `Warn` 警告使用, 程序继续运行
@@ -28,7 +28,7 @@
 
 [TOP](#k3log)
 
-#### 设置参数
+### 设置参数
 - `WithFilename`    日志保存路径
 - `WithLogLevel`    日志记录级别
 - `WithMaxSize`     日志分割的尺寸 MB
@@ -40,7 +40,7 @@
 
 [TOP](#k3log)
 
-#### 使用方法
+### 使用方法
 
 - 简单使用
 
@@ -115,7 +115,7 @@ Fatal("fatal", 6)
 ```
 [TOP](#k3log)
 
-#### 动态改变日志的打印级别
+### 动态改变日志的打印级别
 ```golang
 Info("aa", 11)
 SetLogLevel(conf.InfoLevel)
@@ -126,7 +126,7 @@ Info("info-100", 300) //这个无法输出,因为上面设置日志级别为:err
 Error("err", 400)
 ```
 
-#### 效率
+### 效率
 ```json
 runtime.GOMAXPROCS(runtime.NumCPU())
 BenchmarkInfo-4   	  100000	     10776 ns/op
