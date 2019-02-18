@@ -1,2 +1,3 @@
 2019-02-18T14:59:19.803+0800	DEBUG	k3log/init_test.go:77	Dump	{"name": "(string) (len=4) \"dump\"", "s": "(k3log.s) { Name: (string) (len=2) \"k3\", Age: (int) 2}"}
 2019-02-18T14:59:46.105+0800	DEBUG	k3log/init_test.go:77	Dump	{"name": "(string) (len=4) \"dump\"", "s": "(k3log.s) { Name: (string) (len=2) \"k3\", Age: (int) 2}"}
+2019-02-18T15:03:39.207+0800	DEBUG	k3log/init_test.go:74	Dump	{"default": "(bytes.Buffer) "}

@@ -59,6 +59,7 @@ Warn("warn日志", 3)
 Error("error日志", 4)
 Panic("panic", 5)
 Fatal("fatal", 6)
+Dump("dump", 7)
 ```
 
 [TOP](#k3log)
