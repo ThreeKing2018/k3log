@@ -68,3 +68,12 @@ func TestInfo2(t *testing.T) {
 	Info("info-100", 300) //这个无法输出,因为上面设置日志级别为:error
 	Error("err", 400)
 }
+func TestDump(t *testing.T) {
+	type s struct {
+		Name string
+		Age int
+	}
+	SetLogger(conf.WithIsStdOut(true))
+	Dump("name", "dump", "s", s{Name:"k3", Age: 2})
+}
+

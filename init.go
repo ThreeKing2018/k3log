@@ -20,7 +20,7 @@ func NewDevelopment(projectName, filePath string) {
 		conf.WithIsStdOut(true))
 }
 //快捷使用,生产使用
-func NewProducttion(projectName, filePath string) {
+func NewProduction(projectName, filePath string) {
 	SetLogger(conf.WithProjectName(projectName),
 		conf.WithLogType(conf.LogJsontype),
 		conf.WithFilename(filePath),
@@ -61,4 +61,7 @@ func Panic(keysAndValues ...interface{}) {
 
 func Fatal(keysAndValues ...interface{}) {
 	l.Fatal(keysAndValues...)
+}
+func Dump(keysAndValues ...interface{}) {
+	l.Dump(keysAndValues...)
 }

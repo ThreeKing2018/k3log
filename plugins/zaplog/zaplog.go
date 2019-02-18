@@ -6,11 +6,14 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 	"gopkg.in/natefinch/lumberjack.v2"
+	"github.com/davecgh/go-spew/spew"
+	"strings"
 )
 
 type Log struct {
 	logger *zap.SugaredLogger
 	atom   zap.AtomicLevel
+	options	*conf.Options
 }
 
 func parseLevel(level conf.Level) zapcore.Level {
@@ -59,6 +62,7 @@ func New(opts ...conf.Option) *Log {
 		LogType: conf.LogNormalType,
 	}
 
+
 	for _, opt := range opts {
 		opt(o)
 	}
@@ -104,7 +108,7 @@ func New(opts ...conf.Option) *Log {
 		logger = logger.With(zap.String(conf.ProjectKey, o.ProjectName))
 	}
 	loggerSugar := logger.Sugar()
-	return &Log{logger: loggerSugar, atom: atom}
+	return &Log{logger: loggerSugar, atom: atom, options:o}
 
 }
 
@@ -141,4 +145,15 @@ func (l *Log) Panic(keysAndValues ...interface{}) {
 }
 func (l *Log) Fatal(keysAndValues ...interface{}) {
 	l.logger.Fatalw("", CoupArray(keysAndValues)...)
+}
+func (l *Log) Dump(keysAndValues ...interface{}) {
+	arr := CoupArray(keysAndValues)
+	for k, v := range arr {
+		if k % 2 == 0 {
+			arr[k] = v
+		} else {
+			arr[k] = strings.Replace(spew.Sdump(v), "\n", "", -1)
+		}
+	}
+	l.logger.Debugw("Dump", arr...)
 }

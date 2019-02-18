@@ -9,6 +9,7 @@
 1. [使用方法](#使用方法)
 1. [动态改变日志的打印级别](#动态改变日志的打印级别)
 1. [效率](#效率)
+1. [Dump的使用](#dump的使用)
 
 ### 介绍
 
@@ -17,7 +18,12 @@
 - 由uber zap 日志扩展而来
 - 实现分隔,异步,动态级别打印,json/txt
 - 以key-value形式打印日志,适合项目里使用
+- 加入Dump打印数据详细类型结构,融入[go-spew](https://github.com/davecgh/go-spew)调度利器
 
+### 安装
+```
+go get -u github.com/ThreeKing2018/k3log
+```
 
 ### 日志级别
 - `Debug` 调度使用, 程序继续运行
@@ -26,6 +32,7 @@
 - `Error` 错误使用, 程序继续运行
 - `Panic` 恐慌的,退出函数,不会退出应用唾弃,会执行defer
 - `Fatal` 致命的,退出应用程序,不会执行defer,因为底层多一个os.Exit
+- `Dump` 打印数据类型,方便调度,级别为:Debug
 
 [TOP](#k3log)
 
@@ -135,3 +142,18 @@ BenchmarkInfo-4   	  200000	     12442 ns/op
 ```
 
 [TOP](#k3log)
+
+
+### Dump的使用
+- 级别为:debug
+
+```
+type s struct {
+    Name string
+    Age int
+}
+SetLogger(conf.WithIsStdOut(true))
+Dump("name", "dump", "s", s{Name:"k3", Age: 2})
+
+//{"name": "(string) (len=4) \"dump\"", "s": "(k3log.s) { Name: (string) (len=2) \"k3\", Age: (int) 2}"}
+```
