@@ -1,3 +1,15 @@
 2019-02-18T14:59:19.803+0800	DEBUG	k3log/init_test.go:77	Dump	{"name": "(string) (len=4) \"dump\"", "s": "(k3log.s) { Name: (string) (len=2) \"k3\", Age: (int) 2}"}
 2019-02-18T14:59:46.105+0800	DEBUG	k3log/init_test.go:77	Dump	{"name": "(string) (len=4) \"dump\"", "s": "(k3log.s) { Name: (string) (len=2) \"k3\", Age: (int) 2}"}
 2019-02-18T15:03:39.207+0800	DEBUG	k3log/init_test.go:74	Dump	{"default": "(bytes.Buffer) "}
+{"level":"DEBUG","time":"2019-03-08T14:51:09.562+0800","file":"k3log/init_test.go:50","msg":"","ddd":200,"aa":2001,"default":"bb"}
+{"level":"ERROR","time":"2019-03-08T14:51:09.564+0800","file":"k3log/init_test.go:53","msg":"","error":1}
+{"level":"FATAL","time":"2019-03-08T14:51:09.564+0800","file":"k3log/init_test.go:57","msg":"","fatal":1,"stack":"github.com/ThreeKing2018/k3log/plugins/zaplog.(*Log).Fatal\n\t/Users/wangzl/go-work/src/github.com/ThreeKing2018/k3log/plugins/zaplog/zaplog.go:146\ngithub.com/ThreeKing2018/k3log.Fatal\n\t/Users/wangzl/go-work/src/github.com/ThreeKing2018/k3log/init.go:65\ngithub.com/ThreeKing2018/k3log.TestFatal\n\t/Users/wangzl/go-work/src/github.com/ThreeKing2018/k3log/init_test.go:57\ntesting.tRunner\n\t/usr/local/go/src/testing/testing.go:777"}
+{"level":"DEBUG","time":"2019-03-08T14:51:57.376+0800","file":"k3log/init_test.go:50","msg":"","ddd":200,"aa":2001,"default":"bb"}
+{"level":"ERROR","time":"2019-03-08T14:51:57.376+0800","file":"k3log/init_test.go:53","msg":"","error":1}
+{"level":"DEBUG","time":"2019-03-08T14:52:19.426+0800","file":"k3log/init_test.go:49","msg":"","ddd":200,"aa":2001,"default":"bb"}
+{"level":"ERROR","time":"2019-03-08T14:52:19.426+0800","file":"k3log/init_test.go:52","msg":"","error":1}
+{"level":"INFO","time":"2019-03-08T14:52:19.426+0800","file":"k3log/init_test.go:56","msg":"","aa":11}
+{"level":"INFO","time":"2019-03-08T14:52:19.426+0800","file":"k3log/init_test.go:58","msg":"","info":100}
+{"level":"WARN","time":"2019-03-08T14:52:19.426+0800","file":"k3log/init_test.go:59","msg":"","warn":200}
+{"level":"ERROR","time":"2019-03-08T14:52:19.426+0800","file":"k3log/init_test.go:62","msg":"","err":400}
+2019-03-08T14:52:19.426+0800	DEBUG	k3log/init_test.go:70	Dump	{"name": "(string) (len=4) \"dump\"", "s": "(k3log.s) { Name: (string) (len=2) \"k3\", Age: (int) 2}"}
