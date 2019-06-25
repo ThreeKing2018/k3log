@@ -20,6 +20,9 @@
 - 以key-value形式打印日志,适合项目里使用
 - 加入Dump打印数据详细类型结构,融入[go-spew](https://github.com/davecgh/go-spew)调度利器
 
+### 文档参考
+- https://godoc.org/github.com/ThreeKing2018/k3log
+
 ### 安装
 ```
 go get -u github.com/ThreeKing2018/k3log
